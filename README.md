@@ -1,1 +1,1 @@
-# resource-discovery-api
+# Resource Discovery API

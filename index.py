@@ -1,4 +1,6 @@
-from biothings.web.index_base import main
+#from biothings.web.index_base import main
+from biothings.web.launcher import main
+
 from web.handlers import EXTRA_HANDLERS
 
 if __name__ == "__main__":
