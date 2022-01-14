@@ -3,7 +3,9 @@ from biothings.web.query import ESQueryBuilder, AsyncESQueryPipeline
 from elasticsearch_dsl import Search
 
 class MyFormatter(ESResultFormatter):
-
+    """
+    Converting the entrezgene into an integer
+    """
     def transform_hit(self, path, doc, options):
 
         if path == '' and 'entrezgene' in doc:  # root level
@@ -13,7 +15,11 @@ class MyFormatter(ESResultFormatter):
                 ...
 
 class MyQueryBuilder(ESQueryBuilder):
-
+    """
+    Modify the query builder stage to add features
+    Feature 1- use domain knowledge to deliver search results: docs are scored with rules to
+    increase the result relevancy
+    """
     def apply_extras(self, search, options):
 
         search = Search().query(
@@ -31,12 +37,12 @@ class MyQueryBuilder(ESQueryBuilder):
 
 class MyQueryPipeline(AsyncESQueryPipeline):
     """
-    Now we made ourselves a tutorial page to show what annotation results can look like,
+    A tutorial page to show what annotation results can look like
     """
     async def fetch(self, id, **options):
 
         if id == "tutorial":
-            res = {"_welcome": "to the world of biothings.api"}
+            res = {"_welcome": "RDP API"}
             res.update(await super().fetch("1017", **options))
             return res
 
