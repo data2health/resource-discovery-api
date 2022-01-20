@@ -1,2 +1,3 @@
-EXTRA_HANDLERS = [(r"/{ver}/es_query/(.+)", "handlers.EchoHandler"),
-                 (r"/{ver}/login", "handlers.EchoHandler")]
+
+EXTRA_HANDLERS = [(r"/{ver}/es_query/(.+)", "web.handlers.EchoHandler"),
+                 (r"/{ver}/login/(.+)", "web.handlers.EchoHandler")]
