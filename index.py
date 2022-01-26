@@ -6,7 +6,7 @@ Mygene Web Server Entry Point
 >>> python index.py --port=8000
 """
 
-#import conifg
+import config
 #from biothings.web.index_base import main
 from biothings.web.launcher import main
 from web.handlers import EXTRA_HANDLERS

@@ -2,23 +2,34 @@ import os
 from biothings.web.settings.default import QUERY_KWARGS
 from web.handlers import EXTRA_HANDLERS
 from biothings.web.settings.default import APP_LIST
+from .config_local import Credentials
 
+# *****************************************************************************
+# Elasticsearch Settings
+# *****************************************************************************
+ES_HOST = 'http://search.cd2h.org:9200/'
+ES_ARGS=Credentials.credentials
+#ES_INDICES = {"test_index": "cd2h-clic-education"}
+ES_INDEX = 'cd2h-clic-education'
+ES_DOC_TYPE = '_doc'
+ANNOTATION_DEFAULT_SCOPES = ["_id", "symbol"]
+#ES_USERNAME='elastic'
+#ES_PASSWORD='lloBxMKdowWce9VCPfda'
 
-ES_HOST= 'http://search.cd2h.org:9200/
-ES_INDICES = {"es_query": "v1"} # document type URL templating
-ANNOTATION_DEFAULT_SCOPES = ["_id", "symbol"] # setting to specify id fields 
-#ES_INDEX=''
-#ES_DOC_TYPE
+# *****************************************************************************
+# Web Application
+# *****************************************************************************
 
+API_VERSION = 'v1'
 API_PREFIX='cd2h'
-API_VERSION=''
-# Declare a new route
-#APP_LIST = [
- #   *APP_LIST, # keep the original ones
- #   (r"/{ver}/es_query/(.+)", "web.handlers.EchoHandler"),
-#]
+APP_LIST += [
+    (r"/cd2h/test/(.+)", "web.handlers.handlers.EchoHandler"),
+]
 
+# *****************************************************************************
+# Elasticsearch Query Pipeline
+# *****************************************************************************
 ES_RESULT_TRANSFORM = "web.pipeline.MyFormatter" # format the output
 ES_QUERY_BUILDER = "web.pipeline.MyQueryBuilder" # increase search result relevancy 
 ES_QUERY_PIPELINE = "web.pipeline.MyQueryPipeline" #overwrites Pipeline class
-
+#AVAILABLE_FIELDS_EXCLUDED = ['all', 'accession_agg', 'refseq_agg']

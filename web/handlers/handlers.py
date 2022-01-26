@@ -1,5 +1,4 @@
-from biothings.web.handlers import BaseAPIHandler
-
+from biothings.web.handlers import BaseAPIHandler, BaseQueryHandler
 # declare a new route
 class EchoHandler(BaseAPIHandler):
 
@@ -9,5 +8,4 @@ class EchoHandler(BaseAPIHandler):
             "result": text
        })
 
-
-
+#class TestQueryHandler(BaseQueryHandler):

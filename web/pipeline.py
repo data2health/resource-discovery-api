@@ -41,7 +41,7 @@ class MyQueryPipeline(AsyncESQueryPipeline):
     """
     async def fetch(self, id, **options):
 
-        if id == "tutorial":
+        if id == "rdp-test":
             res = {"_welcome": "RDP API"}
             res.update(await super().fetch("1017", **options))
             return res
