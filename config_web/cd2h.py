@@ -13,8 +13,7 @@ ES_ARGS=Credentials.credentials
 ES_INDEX = 'cd2h-clic-education'
 ES_DOC_TYPE = '_doc'
 ANNOTATION_DEFAULT_SCOPES = ["_id", "symbol"]
-#ES_USERNAME='elastic'
-#ES_PASSWORD='lloBxMKdowWce9VCPfda'
+
 
 # *****************************************************************************
 # Web Application
