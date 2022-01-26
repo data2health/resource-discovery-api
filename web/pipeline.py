@@ -2,6 +2,8 @@ from biothings.web.query import ESResultFormatter
 from biothings.web.query import ESQueryBuilder, AsyncESQueryPipeline
 from elasticsearch_dsl import Search
 
+# Pipeline functions built from web tutorial 
+
 class MyFormatter(ESResultFormatter):
     """
     Converting the entrezgene into an integer
