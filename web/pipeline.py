@@ -14,7 +14,7 @@ class MyFormatter(ESResultFormatter):
             except:
                 ...
 
-class MyQueryBuilder(ESQueryBuilder):
+class TestQueryBuilder(ESQueryBuilder):
     """
     Modify the query builder stage to add features
     Feature 1- use domain knowledge to deliver search results: docs are scored with rules to
