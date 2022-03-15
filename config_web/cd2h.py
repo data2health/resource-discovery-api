@@ -10,7 +10,7 @@ ES_ARGS = {
 
 ES_INDICES = {
     None: "c*,o*",   # all indices excluding internal ones
-    "outbreak": "outbreak_*",
+    "outbreak": "outbreak_*_clone",
     "cd2h": "cd2h-*",
     "csbc": "csbc-*"
 }
