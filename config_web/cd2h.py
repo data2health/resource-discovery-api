@@ -18,13 +18,10 @@ ES_INDICES = {
     "csbc": "csbc-*"
 }
 
-ES_DOC_TYPE = 'doc'
-ANNOTATION_DEFAULT_SCOPES = ["_id"]
-
-
 # *****************************************************************************
 # Web Application
 # *****************************************************************************
+
 API_PREFIX = 'api'
 API_VERSION = ''
 
@@ -32,9 +29,6 @@ API_VERSION = ''
 # *****************************************************************************
 # Elasticsearch Query Pipeline and Customizations
 # *****************************************************************************
-
-
-
 
 SOURCE_TYPEDEF = {
     'post_filter': {
@@ -44,13 +38,15 @@ SOURCE_TYPEDEF = {
     }
 }
 
+ES_DOC_TYPE = 'doc'
+ANNOTATION_DEFAULT_SCOPES = ["_id"]
+
 ANNOTATION_KWARGS = copy.deepcopy(ANNOTATION_KWARGS)
 ANNOTATION_KWARGS['*'].update(SOURCE_TYPEDEF)
 
 QUERY_KWARGS = copy.deepcopy(QUERY_KWARGS)
 QUERY_KWARGS['*'].update(SOURCE_TYPEDEF)
-QUERY_KWARGS['*']['_source']['default'] = [ '_id']
-QUERY_KWARGS['POST']['scopes']['default'] = [ '_id', 'name']
-
+#QUERY_KWARGS['*']['_source']['default'] = [ '_id']
+#QUERY_KWARGS['POST']['scopes']['default'] = [ '_id', 'name']
 
 ES_QUERY_BUILDER = "web.pipeline.RDPQueryBuilder"
