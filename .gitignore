@@ -128,6 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-
+# Add Ons
 config_local.py
 api_rawquery_samples.json
+dojo.md
