@@ -1,6 +1,6 @@
 from config_local import ES_PRIVATE_HOST, ES_HTTP_AUTH
-import copy
-from biothings.web.settings.default import (ANNOTATION_KWARGS, QUERY_KWARGS, APP_LIST)
+import copy, re
+from biothings.web.settings.default import (ANNOTATION_KWARGS, QUERY_KWARGS)
 
 
 # *****************************************************************************
@@ -12,10 +12,11 @@ ES_ARGS = {
 }
 
 ES_INDICES = {
-    None: "cd2h*,csbsc*,outbreak_*_clone",   # all indices excluding internal ones
+    #None: "cd2h*,csbsc*,outbreak_*_clone",   # all indices excluding internal ones
     "outbreak": "outbreak_*_clone",
     "cd2h": "cd2h-*",
-    "csbc": "csbc-*"
+    "csbc": "csbc-*",
+    "comp-tools":"*nlpsandbox-computational-tools*, *cckp-computational-tools*" 
 }
 
 # *****************************************************************************
@@ -34,7 +35,8 @@ SOURCE_TYPEDEF = {
     'post_filter': {
         'type': str,
         'default': None,
-        'max': 1000,
+        'max': 1000
+        #'translation': 
     }
 }
 
