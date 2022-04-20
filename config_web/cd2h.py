@@ -13,7 +13,7 @@ ES_ARGS = {
 }
 
 ES_INDICES = {
-    None: "cd2h*,csbsc*,outbreak_*_clone, *nlpsandbox-computational-tools-20220401-2,  *cckp-computational-tools-20220401-2",   # all indices excluding internal ones
+    None: "cd2h*,csbsc*,outbreak_*_clone, *nlpsandbox-computational-tools-20220401-2, *cckp-computational-tools-20220401-2",   # all indices excluding internal ones
     "outbreak": "outbreak_*_clone",
     "cd2h": "cd2h-*",
     "csbc": "csbc-*",
@@ -31,6 +31,15 @@ API_VERSION = ''
 # *****************************************************************************
 # Elasticsearch Query Pipeline and Customizations
 # *****************************************************************************
+
+SOURCE_TYPEDEF={
+     'post_filter': {
+        'type': str,
+        'default': None,
+        'max': 1000,
+        'max': 1000
+    }
+}
 
 ES_DOC_TYPE = 'doc'
 ANNOTATION_DEFAULT_SCOPES = ["_id"]
