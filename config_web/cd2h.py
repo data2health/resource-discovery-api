@@ -1,11 +1,12 @@
 from config_local import ES_PRIVATE_HOST, ES_HTTP_AUTH
-import copy, re
+import copy
 from biothings.web.settings.default import (ANNOTATION_KWARGS, QUERY_KWARGS)
 
 
 # *****************************************************************************
 # Elasticsearch Settings
 # *****************************************************************************
+
 ES_HOST = ES_PRIVATE_HOST
 ES_ARGS = {
     "http_auth": ES_HTTP_AUTH
@@ -16,7 +17,7 @@ ES_INDICES = {
     "outbreak": "outbreak_*_clone",
     "cd2h": "cd2h-*",
     "csbc": "csbc-*",
-    "comp-tools":"*nlpsandbox-computational-tools*, *cckp-computational-tools*" 
+    "comp-tools":"*nlpsandbox-computational-tools-20220401-2, *cckp-computational-tools-20220401-2" 
 }
 
 # *****************************************************************************
@@ -31,15 +32,6 @@ API_VERSION = ''
 # Elasticsearch Query Pipeline and Customizations
 # *****************************************************************************
 
-SOURCE_TYPEDEF = {
-    'post_filter': {
-        'type': str,
-        'default': None,
-        'max': 1000
-        #'translation': 
-    }
-}
-
 ES_DOC_TYPE = 'doc'
 ANNOTATION_DEFAULT_SCOPES = ["_id"]
 
@@ -48,7 +40,5 @@ ANNOTATION_KWARGS['*'].update(SOURCE_TYPEDEF)
 
 QUERY_KWARGS = copy.deepcopy(QUERY_KWARGS)
 QUERY_KWARGS['*'].update(SOURCE_TYPEDEF)
-#QUERY_KWARGS['*']['_source']['default'] = [ '_id']
-#QUERY_KWARGS['POST']['scopes']['default'] = [ '_id', 'name']
 
 ES_QUERY_BUILDER = "web.pipeline.RDPQueryBuilder"
