@@ -13,6 +13,7 @@ class RDPQueryBuilder(ESQueryBuilder):
             pf_arg=options['post_filter']
 
             if len(pf_arg) == 1: # single parameter passed
+                print("\n\n\n[INFO] DATA: ", pf_arg)
                 pf_key,pf_val=pf_arg[0].split(":")[0],pf_arg[0].split(":")[1]
                 search = search.post_filter("term", **{pf_key: pf_val} )
                 
@@ -24,9 +25,12 @@ class RDPQueryBuilder(ESQueryBuilder):
                         args_dict[pf_key]=[pf_val]
                     else:
                         args_dict[pf_key].append(pf_val)
+                        
                 # setup the multi-term search
                 bool_search=[{"terms": {_key:_val}} for _key,_val in args_dict.items()]
                 search = search.post_filter("bool", must=bool_search)
+
+            
             
         return super().apply_extras(search, options)
 

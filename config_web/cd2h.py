@@ -12,7 +12,9 @@ ES_ARGS = {
     "http_auth": ES_HTTP_AUTH
 }
 
-ES_INDICES = {None: "cd2h*,csbsc*,outbreak_*_clone, *nlpsandbox-computational-tools-20220401-2, *cckp-computational-tools-20220401-2"}   # all indices excluding internal ones
+ES_INDICES = {
+    None: "cd2h*,csbsc*,outbreak_*_clone,cckp-computational-tools-20220401-2,nlpsandbox-computational-tools-20220401-2"
+    }   
     #"outbreak": "outbreak_*_clone",
     #"cd2h": "cd2h-*",
     #"csbc": "csbc-*",
