@@ -26,7 +26,7 @@ class RDPQueryBuilder(ESQueryBuilder):
                         args_dict[pf_key].append(pf_val)
                 # setup the multi-term search
                 bool_search=[{"terms": {_key:_val}} for _key,_val in args_dict.items()]
-                search = search.post_filter("bool", should=bool_search)
+                search = search.post_filter("bool", must=bool_search)
             
         return super().apply_extras(search, options)
 
