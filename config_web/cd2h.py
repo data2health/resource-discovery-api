@@ -12,13 +12,12 @@ ES_ARGS = {
     "http_auth": ES_HTTP_AUTH
 }
 
-ES_INDICES = {
-    None: "cd2h*,csbsc*,outbreak_*_clone, *nlpsandbox-computational-tools-20220401-2, *cckp-computational-tools-20220401-2",   # all indices excluding internal ones
-    "outbreak": "outbreak_*_clone",
-    "cd2h": "cd2h-*",
-    "csbc": "csbc-*",
-    "comp-tools":"*nlpsandbox-computational-tools-20220401-2, *cckp-computational-tools-20220401-2" 
-}
+ES_INDICES = {None: "cd2h*,csbsc*,outbreak_*_clone, *nlpsandbox-computational-tools-20220401-2, *cckp-computational-tools-20220401-2"}   # all indices excluding internal ones
+    #"outbreak": "outbreak_*_clone",
+    #"cd2h": "cd2h-*",
+    #"csbc": "csbc-*",
+    #"comp-tools":"*nlpsandbox-computational-tools-20220401-2, *cckp-computational-tools-20220401-2" 
+#}
 
 # *****************************************************************************
 # Web Application
@@ -34,11 +33,11 @@ API_VERSION = ''
 
 SOURCE_TYPEDEF={
      'post_filter': {
-        'type': str,
-        'default': None,
-        'max': 1000,
+        'type': list,
+        'default': ['all'],
+        'strict': False,
         'max': 1000
-    }
+     }
 }
 
 ES_DOC_TYPE = 'doc'
