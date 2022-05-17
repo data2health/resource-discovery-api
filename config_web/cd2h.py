@@ -15,11 +15,6 @@ ES_ARGS = {
 ES_INDICES = {
     None: "cd2h*,csbsc*,outbreak_*_clone,cckp-computational-tools-20220401-2,nlpsandbox-computational-tools-20220401-2"
     }   
-    #"outbreak": "outbreak_*_clone",
-    #"cd2h": "cd2h-*",
-    #"csbc": "csbc-*",
-    #"comp-tools":"*nlpsandbox-computational-tools-20220401-2, *cckp-computational-tools-20220401-2" 
-#}
 
 # *****************************************************************************
 # Web Application
@@ -36,7 +31,7 @@ API_VERSION = ''
 SOURCE_TYPEDEF={
      'post_filter': {
         'type': list,
-        'default': ['all'],
+        'default': [],
         'strict': False,
         'max': 1000
      }
