@@ -13,7 +13,6 @@ class RDPQueryBuilder(ESQueryBuilder):
         # post_filter 
         if options.aggs and options.post_filter:
             args_str = ' '.join(options['post_filter']) # set arguments as a string for query format
-            print('\n\n', args_str,'\n\n')
             search = search.post_filter("query_string", query = args_str)
             
         return super().apply_extras(search, options)
