@@ -1,5 +1,4 @@
-#from biothings.web.query import ESResultFormatter
-from biothings.web.query import ESQueryBuilder#,  AsyncESQueryPipeline
+from biothings.web.query import ESQueryBuilder
 from elasticsearch_dsl import Search
 
 
