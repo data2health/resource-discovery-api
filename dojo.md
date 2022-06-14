@@ -1,1 +1,0 @@
-http://rdp.biothings.io/api/query?size=10&from=0&aggs=@type&facet_size=20&q=gene+AND+_exists_ @type:@type&post_filter=@type:"Dataset"
