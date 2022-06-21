@@ -12,8 +12,9 @@ class RDPQueryBuilder(ESQueryBuilder):
         # elasticsearch query string syntax
         if ":" in q or " AND " in q or " OR " in q:
             search = search.query('query_string', query=q)
+        
         # Boost fields 
-        # Note: 'title' field goes by various names, ['name', 'etc'...], across indices
+        # Note: 'author' field goes by various names across indices, ['name', 'etc'...],
         # therefore we have to account for the variety
         # -- term search 
         elif q.startswith('"') and q.endswith('"'):
@@ -40,11 +41,10 @@ class RDPQueryBuilder(ESQueryBuilder):
                             {"term": { "author.name": {"value": q, "boost": 5}}},
                             {"term": {"name": {"value": q, "boost": 5}}},
                             {"match": {"author.name": {"query": q, "boost": 3}}},
-                            #{"opertaor"="AND"}
                             # ---------------------------------------------
                             {"query_string": {"query": q, "default_field": "all"}},  # base score
                             # ---------------------------------------------
-                            {"wildcard": {"author.name": {"value": q + "*", "boost": 0.8}}},
+                            {"wildcard": {"author.name": {"value": q + "*", "boost": 2}}},
                             {"wildcard": {"title": {"value": q + "*", "boost": 0.5}}}
                         ],
                     }
