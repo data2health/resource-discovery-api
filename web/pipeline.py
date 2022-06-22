@@ -14,8 +14,6 @@ class RDPQueryBuilder(ESQueryBuilder):
             search = search.query('query_string', query=q)
         
         # Boost fields : ['name','title', 'label', 'toolName', 'article_title']
-        # Note: 'author' field goes by various names across indices, ['name', 'etc'...],
-        # therefore we have to account for the variety
         # -- term search 
         elif q.startswith('"') and q.endswith('"'):
             query = {
